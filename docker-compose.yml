@@ -1,0 +1,22 @@
+services:
+
+  vault:
+    container_name: vault
+    build:
+      context: ./docker/vault
+      target: vault
+      dockerfile: ./Dockerfile
+    restart: on-failure
+    environment:
+      TZ: ${TIME_ZONE:-Africa/Douala}
+    volumes:
+      - ./vault.crt:/etc/ssl/certs/vault.crt # SSL certs
+      - ./vault.key:/etc/ssl/certs/vault.key # SSL key
+      - vault-data:/vault/data # Data
+    ports:
+      - ${VAULT_EXPOSE_PORT:-18200}:8200
+    healthcheck:
+      retries: 5
+
+volumes:
+  vault-data:

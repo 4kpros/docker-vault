@@ -1,0 +1,8 @@
+/.vscode
+
+# sensitive files
+*.env
+!.env.example
+*.pem
+*.key
+*.crt
