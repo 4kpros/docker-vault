@@ -17,7 +17,7 @@ docker-ghcr-push:
 	echo "Tag - GitHub Docker Registry"; \
 	gCorp="emenec-finance"; \
 	gRepo="vault"; \
-	localImgName="vault-vault"; \
+	localImgName="svc-vault-vault"; \
 	remoteImgName="vault"; \
 	read -p "Enter your tag(default is 0.0.1): " gTag; gTag=$${gTag:-"0.0.1"}; \
 	docker tag $$localImgName ghcr.io/$$gCorp/$$gRepo/$$remoteImgName:$$gTag; \
